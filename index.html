@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note5 - HTML5 Plain Text Editor</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <style>
+    body {
+      padding-top: 60px;
+    }
+    textarea {
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Note5</a>
+      </div>
+    </div>
+  </div>
+  <section id="note5">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="page-header">
+            <h1>Note5 <small>HTML5 Notepad</small></h1>
+          </div>
+          <textarea class="span12" id="text-content"></textarea>
+          <div class="row">
+            <div class="span6">
+              <input id="text-open" type="file" style="display:none">
+              <div class="input-append">
+                <input type="text" id="text-file" placeholder="Open file">
+                <a class="btn" id="open-file">Open</a>
+              </div>
+            </div>
+            <div class="span6">
+              <div class="pull-right">
+                <div class="input-prepend input-append">
+                  <input type="text" id="text-filename" placeholder="Save file">
+                  <span class="add-on">.txt</span>
+                  <a class="btn btn-primary" id="save-file">Save</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/note5.js"></script>
+</body>
+
+</html>
