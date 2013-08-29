@@ -40,16 +40,20 @@ $(function() {
   var w_win = win.width();
   var h_win = win.height();
 
+  // Text area properties
+  var t = $('#text-area');
+  var w_t = w_win;
+  var h_t = h_win;
+  
   // Line number properties
   var l = $('#line-number');
   var w_l = 45;
   var a_l = false;
   
   // Set #text-area height and width
-  var t = $('#text-area');
   t.isEditable = true;
-  var w_t = w_win - 5;
-  var h_t = h_win - 70;
+  w_t = w_win - 5;
+  h_t = h_win - 70;
   t.css('width', w_t);
   t.css('height', h_t);
   l.css('height', h_t);
