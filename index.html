@@ -9,48 +9,76 @@
   <link rel="stylesheet" href="assets/css/bootstrap.css">
   <style>
     body {
-      padding-top: 60px;
+      width: 100%;
+      padding-top: 65px;
     }
-    textarea {
-      height: 300px;
+    .container-full {
+      width: 100%;
+    }
+    .no-margin {
+      margin: 0;
+    }
+    .no-padding {
+      padding: 0;
+    }
+    #text-area {
+      width: 100%;
+      margin: auto;
+    }
+    #inputFile {
+      display: none;
     }
   </style>
 </head>
 
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="#">Note5</a>
+  <div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Open file</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="inputFile" class="col-lg-3 control-label">Select file</label>
+              <div class="col-lg-9">
+                <input type="file" class="form-control" id="inputFile">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="inputFileName">
+                  <span class="input-group-btn">
+                    <a class="btn btn-default" id="openFile" role="button">Browse</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" id="loadFile" data-dismiss="modal">Open</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-full">
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><a href="#openModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Open</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Save</a></li>
+          <li><a href="#"><i class="icon-rotate-left"></i> Undo</a></li>
+          <li><a href="#"><i class="icon-rotate-right"></i> Redo</a></li>
+        </ul>
       </div>
     </div>
   </div>
   <section id="note5">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-          <div class="page-header">
-            <h1>Note5 <small>HTML5 Notepad</small></h1>
-          </div>
-          <textarea class="span12" id="text-content"></textarea>
-          <div class="row">
-            <div class="span6">
-              <input id="text-open" type="file" style="display:none">
-              <div class="input-append">
-                <input type="text" id="text-file" placeholder="Open file">
-                <a class="btn" id="open-file">Open</a>
-              </div>
-            </div>
-            <div class="span6">
-              <div class="pull-right">
-                <div class="input-prepend input-append">
-                  <input type="text" id="text-filename" placeholder="Save file">
-                  <span class="add-on">.txt</span>
-                  <a class="btn btn-primary" id="save-file">Save</a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="container-full">
+      <div class="row no-margin">
+        <div class="col-lg-12 no-padding">
+          <textarea class="col-lg-12 form-control" id="text-area"></textarea>
         </div>
       </div>
     </div>
