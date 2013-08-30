@@ -15,7 +15,6 @@ note5 is a HTML5 Plain Text Editor. It implements HTML5 File API, specifically F
 
 ##What's Next##
 * Others web browser compatibilty
-* Better line numbering
 
 ##Maintainer##
 * Fitra Aditya (fitra@g.pl)
