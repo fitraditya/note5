@@ -29,6 +29,16 @@
       overflow: hidden;
       text-align: center;
     }
+    #wrapper {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    #wrapper textarea {
+      overflow-y: hidden;
+    }
     #text-area {
       width: 100%;
       margin: auto;
@@ -82,7 +92,10 @@
             <div class="form-group">
               <label for="newFileName" class="col-lg-3 control-label">File name</label>
               <div class="col-lg-9">
-                <input type="text" class="form-control" id="newFileName">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="newFileName">
+                  <span class="input-group-addon">.txt</span>
+                </div>
               </div>
             </div>
           </form>
@@ -111,15 +124,16 @@
     <div class="container-full">
       <div class="row no-margin">
         <div class="col-lg-12 no-padding inline">
-          <div id="line-number"></div>
-          <textarea class="col-lg-12 form-control" id="text-area" contenteditable="true"></textarea>
+          <div id="wrapper">
+            <div id="line-number"></div>
+            <textarea class="col-lg-12 form-control" id="text-area" contenteditable="true"></textarea>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/FileSaver.js"></script>
   <script src="assets/js/note5.js"></script>
 </body>
 
