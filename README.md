@@ -1,20 +1,24 @@
 note5
 =====
 
-note5 is a HTML5 Plain Text Editor. It implements HTML5 File API, specifically FileReader and Blob.
+note5 - simple, pure HTML5 plain text editor.
 
 ##Compatible Web Browser##
-* Chrome (including WebKit based web browser)
+* Chrome (and also webkit based web browser)
 
 ##Features##
 * Open file
-* Save file (download)
+* Download file
 
-##Screenshots##
-![note5](http://html5.fitraditya.com/note5/screenshot.png)
+##Screenshot##
+![note5](http://html5.web.id/note5/ss.png)
 
-##What's Next##
+##Demo##
+[Demo](http://html5.web.id/note5/)
+
+##To Do##
 * Others web browser compatibilty
+* Find and replace function
 
 ##Maintainer##
 * Fitra Aditya (fitra@g.pl)

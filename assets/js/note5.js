@@ -1,89 +1,109 @@
-// Load file function
-var loadFile = function() {
-  var fileTemp = $('#inputFile')[0].files[0];
-  var fileReader = new FileReader();
-  fileReader.onload = function(evt) {
-    var fileBuffer = evt.target.result;;
-    $('#text-area').val(fileBuffer);
-    $('#text-area').change();
-    if ($('#text-area')[0].scrollHeight > $('#text-area').height()) {
-      $('#text-area').css('height', 'auto');
-      $('#text-area').height($('#text-area')[0].scrollHeight);
-    }
-  };
-  fileReader.readAsText(fileTemp, 'UTF-8');
-}
+"use strict"; 
 
-// Save file function
-var saveFile = function() {
-  var filename = $('#newFileName').val();
-  var text = $('#text-area').val();
-  var textfile = new Blob([text], {type:'text/plain'});
-  var downloadLink = document.createElement('a');
-  downloadLink.download = filename;
-  downloadLink.innerHTML = 'Download File';
-  downloadLink.href = window.webkitURL.createObjectURL(textfile);
-  downloadLink.click();
-}
+var filename = 'blank.txt';
+var fontsize = '14';
+var state = true;
 
-// Undo / Redo function
+$(function() {
+  // dropdown menu handler
+  $('.bar').on('click', function() {
+    $('.menu ul').hide();
+    $(this).next().css('display', 'block');
+    $(this).next().css('z-index', '2');
+    $(this).next().on('mouseleave', '', function() {
+      $(this).hide();
+    });
+  });
+  // action handler
+  $('.action').on('click', function() {
+    var action = $(this).data('action');
+    $(this).parent().parent().hide();
+    window[action]();
+  });
+  // get font size
+  fontsize = parseInt($('.editor').css('font-size'));
+  // trigger file state
+  $('.editor').keyup(function() {
+    state = false;
+  });
+});
+
 var formatText = function(act, sel) {
   document.execCommand(act, false, sel);
 }
 
-$(function() {
+var blank = function() {
+  var save = true;
+  if (!state) {
+    save = confirm('The file is not saved. Are you sure want to create a new file?');
+  }
+  if (save) {
+    $('.editor').val('');
+    state = true;
+  }
+}
 
-  // Window properties
-  var win = $(window);
-  var w_win = win.width();
-  var h_win = win.height();
-
-  // Text area properties
-  var t = $('#text-area');
-  var w_t = w_win;
-  var h_t = h_win;
-
-  // Set wrapper, line number, and text area height x width for the first time
-  t.isEditable = true;
-  w_t = w_win - 5;
-  h_t = h_win - 70;
-  t.css('width', w_t);
-  t.css('height', h_t);
-
-  // Set wrapper, line number, and text area height x width when window resized
-  win.resize(function() {
-    w_win = win.width();
-    h_win = win.height();
-    w_t = w_win - 5;
-    h_t = h_win - 70;
-    t.css('width', w_t);
-    t.css('height', h_t);
-  });
-
-  // Customize input file
-  $('#openFile').click(function() {
-    $('#inputFile').click();
-    $('#inputFile').change(function() {
-      $('#inputFileName').val($(this).val());
+var open = function() {
+  var save = true;
+  if (!state) {
+    save = confirm('The file is not saved. Are you sure want to open a new file?');
+  }
+  if (save) {
+    $('.file').click();
+    $('.file').on('change', function() {
+      var filetemp = $('.file')[0].files[0];
+      filename = filetemp.name;
+      var filereader = new FileReader();
+      filereader.onload = function(evt) {
+        var filebuffer = evt.target.result;;
+        $('.editor').val(filebuffer);
+        $('.file').replaceWith($('.file').val('').clone(true));
+      };
+      filereader.readAsText(filetemp, 'UTF-8');
     });
-  });
+    state = true;
+  }
+}
 
-  // Load file action
-  $('#loadFile').on('click', '', function() {
-    loadFile();
-  });
+var download = function() {
+  filename = prompt('Download as', filename);
+  if (filename) {
+    var text = $('.editor').val();
+    var textfile = new Blob([text], {type:'text/plain'});
+    var downloadlink = document.createElement('a');
+    downloadlink.download = filename;
+    downloadlink.innerHTML = 'Download File';
+    downloadlink.href = window.webkitURL.createObjectURL(textfile);
+    downloadlink.click();
+  }
+};
 
-  // Save file action
-  $('#saveFile').on('click', '', function() {
-    saveFile();
-  });
+var undo = function() {
+  formatText('undo');
+}
 
-  // Undo / Redo action
-  $('#undoAction').on('click', '', function() {
-    formatText('undo');
-  });
-  $('#redoAction').on('click', '', function() {
-    formatText('redo');
-  });
+var redo = function() {
+  formatText('redo');
+}
 
-});
+var all = function() {
+  $('textarea').select();
+}
+
+var plus = function() {
+  fontsize = fontsize + 2;
+  $('.editor').css('font-size', fontsize + 'px');
+}
+
+var minus = function() {
+  fontsize = fontsize - 2;
+  $('.editor').css('font-size', fontsize + 'px');
+}
+
+var normal = function() {
+  $('.editor').css('font-size', '14px');
+}
+
+var about = function() {
+  alert('note5' + "\n" + 'Pure HTML5 Text Editor' + "\n" + 'Author: fitra@gpl' + "\n" + 'License: GPL Version 3');
+}

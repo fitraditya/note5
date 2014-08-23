@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>note5 - simple, pure HTML5 plain text editor</title>
+  <link rel="stylesheet" href="assets/css/note5.css">
+</head>
+
+<body>
+  <nav>
+    <ul class="menu">
+      <li>
+        <a href="javascript:;" class="bar">File</a>
+        <ul>
+          <li><a href="javascript:;" class="new action" data-action="blank">New</a></li>
+          <li><a href="javascript:;" class="open action" data-action="open">Open</a></li>
+          <li><a href="javascript:;" class="download action" data-action="download">Download</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;" class="bar">Edit</a>
+        <ul>
+          <li><a href="javascript:;" class="undo action" data-action="undo">Undo</a></li>
+          <li><a href="javascript:;" class="redo action" data-action="redo">Redo</a></li>
+          <li><a href="javascript:;" class="all action" data-action="all">Select all</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;" class="bar">View</a>
+        <ul>
+          <li><a href="javascript:;" class="plus action" data-action="plus">Zoom In</a></li>
+          <li><a href="javascript:;" class="minus action" data-action="minus">Zoom Out</a></li>
+          <li><a href="javascript:;" class="normal action" data-action="normal">Normal Size</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;" class="bar">Help</a>
+        <ul>
+          <li><a href="javascript:;" class="about action" data-action="about">About</a></li>
+          <li><a href="https://github.com/fitraditya/note5" target="_blank" class="fork">Fork on GitHub</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <textarea class="editor"></textarea>
+  <input type="file" name="file" class="hidden file">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/note5.js"></script>
+</body>
+
+</html>
