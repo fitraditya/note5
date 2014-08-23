@@ -9,6 +9,9 @@ note5 - simple, pure HTML5 plain text editor.
 ##Features##
 * Open file
 * Download file
+* Undo
+* Redo
+* Select all
 
 ##Screenshot##
 ![note5](http://html5.web.id/note5/ss.png)
