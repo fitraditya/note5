@@ -1,7 +1,7 @@
 note5
 =====
 
-note5 - simple, pure HTML5 plain text editor.
+note5 - simple, pure HTML5 based plain text editor.
 
 ##Compatible Web Browser##
 * Chrome (and also webkit based web browser)
