@@ -23,5 +23,9 @@ note5 - simple, pure HTML5 based plain text editor.
 * Others web browser compatibilty
 * Find and replace function
 
+Icons
+=====
+We use a free icon sets from [gentleface](http://gentleface.com/) that licensed with The Creative Commons Attribution-NonCommercial
+
 ##Maintainer##
 * Fitra Aditya (fitra@g.pl)
